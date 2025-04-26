@@ -1,4 +1,8 @@
+"use client";
 
+import { fetchSubjects } from "@/components/subject/action";
+import {useEffect, useState } from "react";
+import { Subject } from "@/types/Subject";
 import {
     Table,
     TableBody,
@@ -9,28 +13,25 @@ import {
     TableRow
 } from "@/components/ui/table"
 
-let subjects = [
-    {
-        name: "Matematyka",
-        status: true,
-        teachersNo: 32,
-        studentsNo: 174
-    },
-    {
-        name: "Programowanie",
-        status: false,
-        teachersNo: "0",
-        studentsNo: 2
-    },
-    {
-        name: "Język Angielski",
-        status: true,
-        teachersNo: 27,
-        studentsNo: 142
-    }
-];
+
+
+
 
 export default function SubjectPage()   {
+    const [subjects, setSubjects] = useState<Subject[]|null>(null);
+    const [error, setError] = useState<Error | null>(null);
+    useEffect(() => {
+        fetchSubjects()
+            .then(({ subjects, error }) => {
+                if (error) {
+                    setError(error);
+                } else {
+                    setSubjects(subjects);
+                    setError(null); // Czyszczenie błędu, jeśli zapytanie się powiodło
+                }
+            })
+            .catch(otherError => setError(otherError)); // Obsługa nieoczekiwanych błędów
+    }, []);
     return (
         <>
 
@@ -45,7 +46,7 @@ export default function SubjectPage()   {
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    { subjects.map((subject, index) => (
+                    { subjects?.map((subject, index) => (
                         <TableRow key={index}>
                             <TableCell className="font-medium">{subject.name}</TableCell>
                             <TableCell>{subject.status?"Dostępne":"Strajk"}</TableCell>
