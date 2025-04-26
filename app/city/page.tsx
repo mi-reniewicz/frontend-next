@@ -9,7 +9,32 @@ import {
 } from "@/components/ui/table"
 
 export default function CityPage() {
-
+    let cities = [
+        {
+            miasto: "Łódź",
+            status: "🔴",
+            liczbaNauczycieli: 18,
+            liczbaUczniow: 68
+        },
+        {
+            miasto: "Poznań",
+            status: "🔴",
+            liczbaNauczycieli: 16,
+            liczbaUczniow: 52
+        },
+        {
+            miasto: "Wyszków",
+            status: "🟢",
+            liczbaNauczycieli: 5,
+            liczbaUczniow: 29
+        },
+        {
+            miasto: "Warszawa",
+            status: "🟢",
+            liczbaNauczycieli: 23,
+            liczbaUczniow: 71.5
+        }
+]
 
     return (
         <>
