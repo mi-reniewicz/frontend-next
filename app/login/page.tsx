@@ -8,7 +8,7 @@ export default function LoginPage() {
     return (
             <Card className={"md:w-4/12 w-12/12"}>
                 <form>
-                    <CardHeader>Zaloguj sie</CardHeader>
+                    <CardHeader>Zaloguj się</CardHeader>
                     <CardContent>
 
                             <Label htmlFor="email">Email:</Label>
