@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/table"
 
 export default function CityPage() {
+
     let cities = [
         {
             miasto: "Łódź",
