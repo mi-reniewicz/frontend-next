@@ -51,6 +51,9 @@ function Header() {
             <Link className={`link ${pathname === "/courses" ? "active" : ""}`} href="/courses">
                 Courses
             </Link>
+                <Link className={`link ${pathname === "/subject" ? "active" : ""}`} href="/subject">
+                    Subjects
+                </Link>
                 <Link className={`link ${pathname === "/city" ? "active" : ""}`} href="/city">
                     City
                 </Link>
