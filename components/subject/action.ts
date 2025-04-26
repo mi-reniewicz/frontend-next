@@ -1,14 +1,24 @@
+import {createClient} from "@/utils/supabase/client";
 import {Subject} from "@/types/Subject";
 
 export interface SubjectsControllerInterface {
-    id: string;
-    name: string;
-    status: boolean;
-    teachersNo: number;
-    studentsNo: number;
+    subjects: Subject[] | null;
+    error: Error | null;
 }
 
 //CRUD
+export async function fetchSubjects(): Promise<SubjectsControllerInterface> {
+    const supabase = createClient();
+
+    const query = supabase
+        .from('subjects')
+        .select('*')
+
+    const {data: subjects, error} = await query;
+    return {subjects, error};
+}
+
+
 export function fetchSubject(id:string) : Promise<SubjectsControllerInterface>
 {
 
