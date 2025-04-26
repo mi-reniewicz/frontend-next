@@ -34,6 +34,7 @@ export default function CityPage() {
             status: true,
             teachersNo: 23,
             studentsNo: 71.5
+
         }
 ]
 
