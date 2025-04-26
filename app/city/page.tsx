@@ -12,28 +12,28 @@ export default function CityPage() {
 
     let cities = [
         {
-            miasto: "Łódź",
+            name: "Łódź",
             status: false,
-            liczbaNauczycieli: 18,
-            liczbaUczniow: 68
+            teachersNo: 18,
+            studentsNo: 68
         },
         {
-            miasto: "Poznań",
+            name: "Poznań",
             status: false,
-            liczbaNauczycieli: 16,
-            liczbaUczniow: 52
+            teachersNo: 16,
+            studentsNo: 52
         },
         {
-            miasto: "Wyszków",
+            name: "Wyszków",
             status: true,
-            liczbaNauczycieli: 5,
-            liczbaUczniow: 29
+            teachersNo: 5,
+            studentsNo: 29
         },
         {
-            miasto: "Warszawa",
+            name: "Warszawa",
             status: true,
-            liczbaNauczycieli: 23,
-            liczbaUczniow: 71.5
+            teachersNo: 23,
+            studentsNo: 71.5
         }
 ]
 
@@ -43,7 +43,7 @@ export default function CityPage() {
                 <TableCaption>Lista miast obsługiwanych przez system.</TableCaption>
                 <TableHeader>
                     <TableRow>
-                        <TableHead className="w-[100px]">Miasto</TableHead>
+                        <TableHead className="w-[100px]">name</TableHead>
                         <TableHead>Status</TableHead>
                         <TableHead className="text-right">Liczba Nauczycieli</TableHead>
                         <TableHead className="text-right">Liczba Uczniów</TableHead>
@@ -54,10 +54,10 @@ export default function CityPage() {
                         cities.map((city, index)=> {
                            return (
                                <TableRow key={index}>
-                                   <TableCell className="font-medium">{city.miasto}</TableCell>
+                                   <TableCell className="font-medium">{city.name}</TableCell>
                                    <TableCell>{city.status?"🟢":"🔴"}</TableCell>
-                                   <TableCell className="text-right">{city.liczbaNauczycieli}</TableCell>
-                                   <TableCell className="text-right">{city.liczbaUczniow}</TableCell>
+                                   <TableCell className="text-right">{city.teachersNo}</TableCell>
+                                   <TableCell className="text-right">{city.studentsNo}</TableCell>
                                </TableRow>
                            )
                         })
